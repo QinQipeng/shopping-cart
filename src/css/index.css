@@ -1,0 +1,39 @@
+@import url("./modern-normalize.css");
+
+#root {
+    display: flex;
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+body, h1, h2, h3, h4, h5, figure, p, ol, ul {
+  margin: 0;
+  padding: 0;
+}
+
+ol[role="list"], ul[role="list"] {
+  list-style: none;
+  padding-inline: 0;
+}
+
+img,svg {
+  display: block;
+  max-inline-size: 100%;
+  max-height: 100%;
+}
+
+input, button {
+    background-color: transparent;
+    appearance: none;
+    height: 100%;
+    border: 0px;
+    padding: 0;
+    margin: 0;   
+}
+
+:root {
+    --fjalla: "Fjalla One", sans-serif;
+    --roboto: "Roboto", sans-serif;
+    --playfair: "Playfair Display", serif;
+    --shadow: rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+}

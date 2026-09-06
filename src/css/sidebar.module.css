@@ -1,0 +1,43 @@
+.layout {
+    flex: 1;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.logo {
+    font-family: var(--fjalla);
+    display: flex;
+    align-items: center;
+    inline-size: 5rem;
+    gap: 0.5rem;
+}
+
+ul[role="list"] {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15%;
+    gap: 2rem;
+}
+
+.navItem{
+    font-size: 2rem;
+    margin-left: 1rem;
+    font-family: var(--playfair);
+    font-weight: 500;
+
+    padding: 0.5rem;
+    border-radius: 1rem;
+
+    width: 75%;
+
+    &:hover {
+        background-color: rgba(128, 128, 128, 0.2);
+        cursor: pointer;
+    }
+}
+
+.selectedItem {
+    composes: navItem;
+    text-decoration: underline;
+    font-weight: bold;
+}
