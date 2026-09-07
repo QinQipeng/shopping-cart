@@ -1,4 +1,4 @@
-// import { Link } from "react-router";
+import { Link } from "react-router";
 import { useState } from "react";
 import {
   layout,
@@ -21,8 +21,8 @@ const NAV_ITEMS = [
 
 function NavItem(props) {
   return (
-    <li className={props.className} page={props.page} onClick={props.onClick}>
-      {props.title}
+    <li className={props.className} >
+      <Link page={props.page} onClick={props.onClick} to={`/${props.page}`}>{props.title}</Link>
     </li>
   );
 }
@@ -31,7 +31,7 @@ export default function SideBar() {
   const [currentPage, setCurrentPage] = useState("home");
 
   const handleClick = (event) => {
-    const targetPage = event.currentTarget.getAttribute("page");
+    const targetPage = event.target.getAttribute("page");
     setCurrentPage(targetPage);
   };
 
