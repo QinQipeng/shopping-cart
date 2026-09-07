@@ -35,5 +35,11 @@ input, button {
     --fjalla: "Fjalla One", sans-serif;
     --roboto: "Roboto", sans-serif;
     --playfair: "Playfair Display", serif;
+
+    --primary-color: #f7f5f2;
+    --primary-text: #2b2b2b;
+    --accent: #d2b598;
+    --sec-accent: #af9173 ;
+    
     --shadow: rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 }
