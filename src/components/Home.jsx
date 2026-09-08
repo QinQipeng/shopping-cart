@@ -1,18 +1,17 @@
-import { layout } from "/src/css/home.module.css"
+import styles from "/src/css/home.module.css";
 
-import logo from "/src/assets/logos/wolfy-cafe.svg"
-import logoRev from "/src/assets/logos/wolfy-cafe-rev.svg"
-import addressMap from "/src/assets/wolfyCafe-google-map.png"
-import retail from "/src/assets/wolfy-cafe-retail.png"
+import logoRev from "/src/assets/logos/wolfy-cafe-rev.svg";
+import addressMap from "/src/assets/wolfyCafe-google-map.png";
+import retail from "/src/assets/wolfy-cafe-retail.png";
+import portrait from "/src/assets/me.jpg"
 
-import products from "../lib/products";
+import PRODUCTS from "../lib/products";
 
-
-const DISPLAY_NUM = 1
+const DISPLAY_NUM = 4;
 const CONTACT_INFO = [
   {
     title: "Location",
-    data: "14A Cameron Road, \nTsim Sha Tsui, Kowloon, \nHong Kong"
+    data: "14A Cameron Road, \nTsim Sha Tsui, Kowloon, \nHong Kong",
   },
   {
     title: "Working Hours",
@@ -20,64 +19,98 @@ const CONTACT_INFO = [
   },
   {
     title: "Tel",
-    data: "+852 21100226"
+    data: "+852 21100226",
   },
   {
     title: "Email",
-    data: "WolfyCafe@gmail.com"
-  }
-]
+    data: "WolfyCafe@gmail.com",
+  },
+];
+
+function ContactItem(contact) {
+  return (
+    <li key={contact.title}>
+      {contact.title}: <span className={styles.attr}>{contact.data}</span>{" "}
+    </li>
+  );
+}
+
+function ProdCard(product) {
+  return (
+    <div key={product.name} className={styles.card}>
+      <img src={product.src} alt={product.name} />
+      <div className={styles.prodInfo}>
+        <h4>{product.name}</h4>
+        {`${product.unit}${product.price.toFixed(2)}`}
+      </div>
+    </div>
+  );
+}
+
+const selfIntro = <article>
+  <strong>Wolfy Café</strong> was founded by a passionate coffee
+  enthusiast who believed that great coffee should feel both{" "}
+  <strong>crafted and personal</strong>. Inspired by the calm focus of a
+  wolf and the warmth of a neighborhood café, the owner set out to
+  create a space where every cup tells a story.
+  <br />
+  <br />
+  At Wolfy Café, we are dedicated to{" "}
+  <strong>high-quality, hand-crafted coffee</strong> — from carefully
+  selected beans to precise brewing techniques. Every drink is made with
+  attention to detail, balancing flavor, aroma, and texture. Alongside
+  our coffee, we offer a selection of{" "}
+  <strong>freshly prepared snacks and pastries</strong>, designed to
+  complement each cup.
+  <br />
+  <br />
+  More than just a café, Wolfy Café is a place to slow down, enjoy the
+  process, and experience coffee the way it was meant to be —{" "}
+  <strong>intentional, refined, and made by hand</strong>. 🐺☕
+</article>;
 
 export default function HomePage() {
   return (
-    <div className={layout}>
-      <section className="hero">
-        <div className="advertize">
-          <h1 className="title">Start Your Day with Wolfy Café!</h1>
-          <p className="subtext">With a world champion level in fermentation and roasting techniques at the helm, our freshly brewed coffee is to elevate your day with the highest quality experience!</p>
+    <div className={styles.layout}>
+      <section className={styles.hero}>
+        <div className={styles.advertize}>
+          <h1>Start Your Day with Wolfy Café!</h1>
+          <p>
+            With a world champion level in fermentation and roasting techniques
+            at the helm, our freshly brewed coffee is to elevate your day with
+            the highest quality experience!
+          </p>
+          <button className={styles.takeOrder}>Take Order</button>
         </div>
-        <button>Take Order</button>
       </section>
-      <section className="recommendation">
+      <section className={styles.recommendations}>
         <h2>Try Our Hot Sellers of the Season!</h2>
-        <div className="products">
-          {
-            products.filter((_, index) => index < DISPLAY_NUM).map((product) => {
-              return (
-                <div key={product.name} className="card">
-                  <img src={product.src} alt={product.name} />
-                  <div className="prod-info">
-                    <h4>{product.name}</h4>
-                    {`${product.unit}${product.price.toFixed(2)}`}
-                  </div>
-                </div>
-              )
-            })
-          }
+        <div className={styles.products}>
+          {PRODUCTS.filter((_, index) => index < DISPLAY_NUM).map((product) =>
+            ProdCard(product),
+          )}
         </div>
       </section>
-      <section className="contact">
-        <div className="logo">
+      <section className={styles.contact}>
+        <div className={styles.logo}>
           <img src={logoRev} alt="" />
           <h3>WOLFY CAFÉ</h3>
         </div>
-        <div className="contact-info">
-          <ul>
-            {
-              (CONTACT_INFO.map((contact) => {
-                return (
-                  <li key={contact.title}>{contact.title}: <span className="attr">{contact.data}</span> </li>
-                )
-              }))
-            }
-          </ul>
+        <h1>About Us</h1>
+        <div className={styles.aboutMe}>
+          <img src={portrait} alt="hand-drawn wolf picture" />
+          {selfIntro}
         </div>
-        <div className="address-images">
-          <img src={retail} alt="cafe retail display" />
-          <img src={addressMap} alt="cafe google map" />
+        <h1>Contact Us</h1>
+        <div className={styles.contactInfo}>
+          <ul>{CONTACT_INFO.map((contact) => ContactItem(contact))}</ul>
+          <div className={styles.addressImages}>
+            <img src={retail} alt="cafe retail display" />
+            <img src={addressMap} alt="cafe google map" />
+          </div>
         </div>
       </section>
-      <footer className="footer">Copyright Wolfy Café © 2026</footer>
+      <footer className={styles.footer}>Copyright Wolfy Café © 2026</footer>
     </div>
   );
 }
