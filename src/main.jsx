@@ -6,11 +6,14 @@ import { createBrowserRouter, RouterProvider } from "react-router"
 
 const router = createBrowserRouter([
   {
+    path: "/",
+    element: <ShoppingCart />,
+  },
+  {
     path: "/:page",
     element: <ShoppingCart />,
   },
 ]);
-
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
