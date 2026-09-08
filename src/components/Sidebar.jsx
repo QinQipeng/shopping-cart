@@ -6,6 +6,7 @@ import {
   navItem,
   selectedItem,
 } from "/src/css/sidebar.module.css";
+import brandLogo from "/src/assets/logos/wolfy-cafe.svg"
 
 const NAV_ITEMS = [
   {
@@ -38,7 +39,7 @@ export default function SideBar() {
   return (
     <nav className={layout}>
       <div className={logo}>
-        <img src="/src/assets/wolfy-cafe.svg" alt="" />
+        <img src={brandLogo} alt="" />
         <h1>WOLFY CAFÉ</h1>
       </div>
       <ul role="list">

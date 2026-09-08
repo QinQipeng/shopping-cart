@@ -2,6 +2,7 @@
   flex: 1;
   padding: 2rem;
   box-shadow: var(--shadow);
+  z-index: 1;
 }
 
 .logo {
