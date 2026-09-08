@@ -34,7 +34,7 @@ ul[role="list"] {
   & a {
     font-size: 2rem;
     font-weight: normal;
-    font-family: var(--playfair);
+    font-family: var(--roboto);
     color: var(--primary-text);
     
     text-decoration: none;
