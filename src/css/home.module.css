@@ -1,3 +1,189 @@
 .layout {
     padding: 0rem;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.hero {
+    position: relative;
+    height: 75%;
+    background: no-repeat url(/src/assets/hero-background.jpg);
+    background-position: right 0% top 40%;
+    background-size: contain;
+    background-size: 125%;
+    display: flex;
+    justify-content: end;
+    background-color: var(--sec-accent);
+    background-blend-mode:overlay;
+}
+
+.advertize {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    align-self: center;
+    align-items: flex-start;
+    justify-content: center;
+    right: 2rem;
+    background-color: rgb(from var(--primary-color) r g b / 30%);
+    width: 40%;
+    height: 80%;
+    padding: 2rem 1.5rem;
+    color: var(--primary-color);
+    box-shadow: var(--shadow);
+    font-family: var(--roboto);
+    gap: 1rem;
+}
+
+.advertize h1{
+    margin-top: auto;
+    font-size: 4rem;
+    font-weight: bolder;
+    font-family: var(--fjalla);
+    text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.5);;
+}
+
+.advertize p {
+    line-height: 1.5rem;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+}
+
+.takeOrder {
+    background-color: var(--accent);
+    border: none;
+    color: var(--primary-color);
+    margin-top: auto;
+    align-self: flex-end;
+    height: fit-content;
+    font-weight: bolder;
+    font-size: 2rem;
+    border-radius: 10px;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.recommendations{
+    --section-margin: 2rem;
+    margin: var(--section-margin);
+}
+
+.recommendations h2{
+    font-family: var(--fjalla);
+    font-size: 3rem;
+    text-align: center;
+    text-decoration: underline;
+    margin-bottom: var(--section-margin);
+}
+
+.products {
+    display: flex;
+    justify-content: space-around;
+}
+
+.card{
+    width: 20%;
+    height: 20%;
+    background-color: white;
+    border-radius: 2rem;
+    background-clip: content-box;
+    font-size: 2rem;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 2rem;
+}
+
+.prodInfo {
+    width: 100%;
+    padding: 2rem;
+    font-weight: 300;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+    font-family: var(--roboto);
+}
+
+.contact {
+    background-color: #292d30;
+    color: var(--primary-color);
+    padding: 1rem 2rem;
+}
+
+.contact > .logo {
+    display: flex;
+    font-family: var(--fjalla);
+    width: fit-content;
+    position: relative;
+    justify-self: center;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.contact > .logo > h3 {
+    inline-size: 1.5rem;
+}
+
+.contact > .logo > img{
+    height: 5rem;
+}
+
+.contactInfo{
+    height: fit-content;
+    display: flex;
+    margin
+
+    .attr{
+        font-weight: 300;
+        text-align: right;
+        margin-left: auto;
+    }
+}
+
+.contactInfo > ul {
+    display: flex;
+    flex-direction: column;
+    
+    margin: 1% 7.5% 0% 5%;
+    font-weight: 300;
+    flex: 1;
+    gap: 1rem;
+    /* text-align: right; */
+}
+
+.contactInfo li {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+}
+
+.contactInfo li::before{
+    content: "○";
+    padding-right: 1rem;
+}
+
+.addressImages {
+    display: flex;
+    height: 90%;
+    flex: 1;
+    gap: 1rem;
+}
+
+.addressImages img{
+    height: 100%;
+    width: 50%;
+    object-fit: cover;
+}
+
+.footer {
+    display: flex;
+    background-color: var(--primary-color);
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    height: 10vh;
+    font-weight: bold;
 }

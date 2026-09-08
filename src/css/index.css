@@ -41,5 +41,13 @@ input, button {
     --accent: #d2b598;
     --sec-accent: #af9173 ;
     
-    --shadow: rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+    --shadow: rgba(0, 0, 0, 0.2) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  background: no-repeat url(/src/assets/content-background.jpg);
+  background-blend-mode: overlay;
+  background-color: rgba(255, 251, 242, 0.900);
 }

@@ -12,7 +12,7 @@ export default function ShoppingCart() {
   return (
     <>
       <SideBar />
-      <main style={{flex: 4}}>
+      <main style={{flex: 4, height: "100vh"}}>
         {page === "home" ? (
           <HomePage />
         ) : page === "shop" ? (

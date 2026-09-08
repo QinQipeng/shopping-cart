@@ -2,12 +2,14 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import '/src/css/index.css'
 import ShoppingCart from './ShoppingCart'
-import { createBrowserRouter, RouterProvider } from "react-router"
+import { createBrowserRouter, redirect, RouterProvider } from "react-router"
+import HomePage from './components/Home'
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <ShoppingCart />,
+    loader: () => redirect("/home")
   },
   {
     path: "/:page",
