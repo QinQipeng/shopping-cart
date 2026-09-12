@@ -60,7 +60,11 @@
     font-size: 2rem;
     border-radius: 10px;
     padding: 0.5rem;
-    cursor: pointer;
+
+    &:hover {
+        filter: brightness(80%) contrast(120%);
+        cursor: pointer;
+    }
 }
 
 .recommendations{
@@ -108,7 +112,7 @@
 }
 
 .aboutMe {
-    background-color: #292d30;
+    background-color: var(--dark-primary);
     color: var(--primary-color);
     font-family: var(--roboto);
     display: flex;
@@ -136,7 +140,7 @@
     align-items: center;
     justify-content: center;
     height: 50vh;
-    background-color: #292d30;
+    background-color: var(--dark-primary);
     color: var(--primary-color);
     padding: 2rem 5rem;
 }

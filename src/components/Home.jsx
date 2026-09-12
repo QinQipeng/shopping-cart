@@ -4,46 +4,17 @@ import logoRev from "/src/assets/logos/wolfy-cafe-rev.svg";
 import addressMap from "/src/assets/wolfyCafe-google-map.png";
 import retail from "/src/assets/wolfy-cafe-retail.png";
 import portrait from "/src/assets/me.jpg"
+import ProdCard from "./Product";
 
-import PRODUCTS from "../lib/products";
+import { ALL_PRODUCTS as PRODUCTS, CONTACT_INFO } from "/src/lib/data";
 
 const DISPLAY_NUM = 4;
-const CONTACT_INFO = [
-  {
-    title: "Location",
-    data: "14A Cameron Road, \nTsim Sha Tsui, Kowloon, \nHong Kong",
-  },
-  {
-    title: "Working Hours",
-    data: "09:30~20:00",
-  },
-  {
-    title: "Tel",
-    data: "+852 21100226",
-  },
-  {
-    title: "Email",
-    data: "WolfyCafe@gmail.com",
-  },
-];
 
 function ContactItem(contact) {
   return (
     <li key={contact.title}>
       {contact.title}: <span className={styles.attr}>{contact.data}</span>{" "}
     </li>
-  );
-}
-
-function ProdCard(product) {
-  return (
-    <div key={product.name} className={styles.card}>
-      <img src={product.src} alt={product.name} />
-      <div className={styles.prodInfo}>
-        <h4>{product.name}</h4>
-        {`${product.unit}${product.price.toFixed(2)}`}
-      </div>
-    </div>
   );
 }
 
@@ -87,7 +58,7 @@ export default function HomePage() {
         <h2>Try Our Hot Sellers of the Season!</h2>
         <div className={styles.products}>
           {PRODUCTS.filter((_, index) => index < DISPLAY_NUM).map((product) =>
-            ProdCard(product),
+            ProdCard(product, styles),
           )}
         </div>
       </section>
