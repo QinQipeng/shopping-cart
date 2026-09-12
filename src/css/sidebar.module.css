@@ -1,4 +1,6 @@
 .layout {
+  display: flex;
+  flex-direction: column;
   flex: 1;
   padding: 2rem;
   box-shadow: var(--shadow);
@@ -52,4 +54,32 @@ ul[role="list"] {
   & a {
     font-weight: bold;
   }
+}
+
+.profileTab {
+  display: flex;
+  width: 100%;
+  margin-top: auto;
+  height: 3rem;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--roboto);
+}
+
+.profileTab img {
+  height: 125%;
+  border-radius: 100%;
+  margin-right: 0.5rem;
+
+  &:hover {
+    filter: brightness(80%) contrast(120%);
+    cursor: pointer;
+  }
+}
+
+.profileTab > div {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  gap: 1rem;
 }

@@ -62,13 +62,3 @@
 .card button.addToCart {
     align-self: flex-end;
 }
-
-svg {
-    stroke-width: 1px;
-    stroke: var(--dark-primary);
-    
-    &:hover {
-        stroke-width: 1.5px;
-        cursor: pointer;
-    }
-}

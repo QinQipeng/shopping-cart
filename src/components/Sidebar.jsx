@@ -5,25 +5,29 @@ import {
   logo,
   navItem,
   selectedItem,
+  profileTab
 } from "/src/css/sidebar.module.css";
 import brandLogo from "/src/assets/logos/wolfy-cafe.svg"
+import profilePicture from "/src/assets/profile_picture.png"
+import { Settings, ShoppingCart } from "lucide-react";
 
 const NAV_ITEMS = [
   {
-    page: "home",
+    title: "home",
   },
   {
-    page: "shop",
+    title: "shop",
   },
   {
-    page: "cart",
+    title: "cart",
   },
 ];
 
-function NavItem(props) {
+function NavItem({page, className, onClick}) {
+  const displayTitle = page.title.charAt(0).toUpperCase() + page.title.slice(1)
   return (
-    <li className={props.className} >
-      <Link page={props.page} onClick={props.onClick} to={`/${props.page}`}>{props.title}</Link>
+    <li className={className} >
+      <Link page={page.title} onClick={onClick} to={`/${page.title}`}>{displayTitle}</Link>
     </li>
   );
 }
@@ -44,16 +48,27 @@ export default function SideBar() {
         <h1>WOLFY CAFÉ</h1>
       </div>
       <ul role="list">
-        {NAV_ITEMS.map((item) => (
+        {NAV_ITEMS.map((page) => (
           <NavItem
-            key={item.page}
-            page={item.page}
-            className={currentPage == item.page ? selectedItem : navItem}
-            title={item.page.charAt(0).toUpperCase() + item.page.slice(1)}
+            key={page.title}
+            page={page}
+            className={currentPage == page.title ? selectedItem : navItem}
             onClick={handleClick}
           />
         ))}
       </ul>
+      <div className={profileTab}> 
+        <img src={profilePicture} alt="profile_picture" />
+        <p>Hello, Wolfy!</p>
+        <div>
+          <button>
+            <Settings/>
+          </button>
+          <button>
+            <ShoppingCart />
+          </button>
+        </div>
+      </div>
     </nav>
   );
 }

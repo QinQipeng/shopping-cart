@@ -70,3 +70,13 @@ input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+svg {
+    stroke-width: 1px;
+    stroke: var(--dark-primary);
+    
+    &:hover {
+        stroke-width: 1.5px;
+        cursor: pointer;
+    }
+}
