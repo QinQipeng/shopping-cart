@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link, useParams } from "react-router";
 import { useState } from "react";
 import {
   layout,
@@ -29,7 +29,8 @@ function NavItem(props) {
 }
 
 export default function SideBar() {
-  const [currentPage, setCurrentPage] = useState("home");
+  const { page } = useParams()
+  const [currentPage, setCurrentPage] = useState(page);
 
   const handleClick = (event) => {
     const targetPage = event.target.getAttribute("page");
