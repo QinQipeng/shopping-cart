@@ -1,5 +1,4 @@
-import { Link, useParams } from "react-router";
-import { useState } from "react";
+import { Link, useNavigate } from "react-router";
 import {
   layout,
   logo,
@@ -23,22 +22,17 @@ const NAV_ITEMS = [
   },
 ];
 
-function NavItem({page, className, onClick}) {
+function NavItem({page, className}) {
   const displayTitle = page.title.charAt(0).toUpperCase() + page.title.slice(1)
   return (
     <li className={className} >
-      <Link page={page.title} onClick={onClick} to={`/${page.title}`}>{displayTitle}</Link>
+      <Link page={page.title} to={`/${page.title}`}>{displayTitle}</Link>
     </li>
   );
 }
 
 export default function SideBar({path}) {
-  const [currentPage, setCurrentPage] = useState(path);
-
-  const handleClick = (event) => {
-    const targetPage = event.target.getAttribute("page");
-    setCurrentPage(targetPage);
-  };
+  const navigate = useNavigate();
 
   return (
     <nav className={layout}>
@@ -51,8 +45,7 @@ export default function SideBar({path}) {
           <NavItem
             key={page.title}
             page={page}
-            className={currentPage == page.title ? selectedItem : navItem}
-            onClick={handleClick}
+            className={path == page.title ? selectedItem : navItem}
           />
         ))}
       </ul>
@@ -63,7 +56,7 @@ export default function SideBar({path}) {
           <button>
             <Settings/>
           </button>
-          <button>
+          <button onClick={() => navigate("/cart")}>
             <ShoppingCart />
           </button>
         </div>

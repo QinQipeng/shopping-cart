@@ -4,10 +4,12 @@ import { useParams } from "react-router";
 import HomePage from './components/Home'
 import ShopPage from './components/Shop'
 import CartPage from './components/Cart'
+import { useState } from "react";
 
 
 export default function ShoppingCart() {
   const { page } = useParams()
+  const [cart, setCart] = useState({});
 
   return (
     <>
@@ -16,9 +18,9 @@ export default function ShoppingCart() {
         {page === "home" ? (
           <HomePage />
         ) : page === "shop" ? (
-          <ShopPage />
+          <ShopPage cart={cart} setCart={setCart}/>
         ) : (
-          <CartPage />
+          <CartPage cart={cart} setCart={setCart}/>
         )}
       </main>
     </>

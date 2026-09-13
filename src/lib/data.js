@@ -9,7 +9,6 @@ import ColdBrew from "/src/assets/products/Cold Brew.jpg";
 import Crossaint from "/src/assets/products/Crossaint.jpg";
 import AlmondCrossaint from "/src/assets/products/AlmondCross.jpg";
 import ChocoCrossaint from "/src/assets/products/ChocoCross.jpg";
-import { FileQuestionMark } from "lucide-react";
 
 const ALL_PRODUCTS = [
   {

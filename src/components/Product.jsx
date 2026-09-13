@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ShoppingCartPlus, ChevronLeft, ChevronRight } from "/src/lib/icons.js";
 
-export default function ProdCard({product, style, isShop = false}) {
+export default function ProdCard({product, style, isShop = false, handleAddtoCart}) {
   const [quantity, setQuantity] = useState(1);
 
   return (
@@ -27,7 +27,7 @@ export default function ProdCard({product, style, isShop = false}) {
               <ChevronRight />
             </button>
           </div>
-          <button className="addToCart">
+          <button className="addToCart" onClick={() => {handleAddtoCart(product, quantity)}}>
             <ShoppingCartPlus />
           </button>
         </>

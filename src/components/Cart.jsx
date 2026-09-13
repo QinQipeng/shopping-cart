@@ -6,7 +6,7 @@ const fmtPrice = function(unit, num) {
   return `${unit}${num.toFixed(2)}`
 }
 
-function CartItem({ item }) {
+function CartItem({ item, handleDelete }) {
   return (
     <li className={styles.cartItem}>
       <img src={item.src} alt="" />
@@ -16,19 +16,28 @@ function CartItem({ item }) {
         <p><span>Price:</span> {fmtPrice(item.unit, item.price)}</p>
         <p><span>Amount:</span> {fmtPrice(item.unit, item.price * item.quantity)}</p>
       </div>
-      <button className={styles.removeItem}><X/></button>
+      <button onClick={() => handleDelete(item.name)} className={styles.removeItem} ><X/></button>
     </li>
   );
 }
 
-export default function CartPage() {
+export default function CartPage({ cart, setCart }) {
+  const CART_ITEMS = Object.values(cart);
+
+  const handleDelete = function(prodName) {
+    const newCart = {...cart}
+    delete newCart[prodName]
+    setCart(newCart);
+  }
+
   return (
     <div className={`layout ${styles.layout}`}>
       <h1>Cart Page</h1>
       <ol className={styles.container}>
-        {MOCK_CART_ITEMS.map((props) => <CartItem key={props.name} item={props} />)}
+        {CART_ITEMS.map((props) => <CartItem key={props.name} item={props} handleDelete={handleDelete} />)}
+
         <div className={styles.total}><span>Total Amount:</span> ${
-          MOCK_CART_ITEMS
+          CART_ITEMS
             .reduce((sum, item) => sum+item.price * item.quantity, 0)
             .toFixed(2)}
         </div>
