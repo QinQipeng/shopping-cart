@@ -11,7 +11,7 @@ export default function ShoppingCart() {
 
   return (
     <>
-      <SideBar />
+      <SideBar path={page}/>
       <main style={{flex: 5, height: "100vh"}}>
         {page === "home" ? (
           <HomePage />

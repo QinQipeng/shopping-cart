@@ -83,3 +83,14 @@ ul[role="list"] {
   margin-left: auto;
   gap: 1rem;
 }
+
+.profileTab > p {
+  font-size: large;
+  font-weight: 300;
+  letter-spacing: -1px;
+}
+
+.profileTab > p > span {
+  font-weight: normal;
+  letter-spacing: 0;
+}

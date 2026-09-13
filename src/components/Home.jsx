@@ -58,7 +58,7 @@ export default function HomePage() {
         <h2>Try Our Hot Sellers of the Season!</h2>
         <div className={styles.products}>
           {PRODUCTS.filter((_, index) => index < DISPLAY_NUM).map((product) =>
-            ProdCard(product, styles),
+            <ProdCard key={product.name} product={product} style={styles}/>,
           )}
         </div>
       </section>

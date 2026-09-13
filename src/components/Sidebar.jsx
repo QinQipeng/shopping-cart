@@ -9,7 +9,7 @@ import {
 } from "/src/css/sidebar.module.css";
 import brandLogo from "/src/assets/logos/wolfy-cafe.svg"
 import profilePicture from "/src/assets/profile_picture.png"
-import { Settings, ShoppingCart } from "lucide-react";
+import { Settings, ShoppingCart } from "/src/lib/icons";
 
 const NAV_ITEMS = [
   {
@@ -32,9 +32,8 @@ function NavItem({page, className, onClick}) {
   );
 }
 
-export default function SideBar() {
-  const { page } = useParams()
-  const [currentPage, setCurrentPage] = useState(page);
+export default function SideBar({path}) {
+  const [currentPage, setCurrentPage] = useState(path);
 
   const handleClick = (event) => {
     const targetPage = event.target.getAttribute("page");
@@ -59,7 +58,7 @@ export default function SideBar() {
       </ul>
       <div className={profileTab}> 
         <img src={profilePicture} alt="profile_picture" />
-        <p>Hello, Wolfy!</p>
+        <p>Hello, <span>Wolfy John</span>!</p>
         <div>
           <button>
             <Settings/>

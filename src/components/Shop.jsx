@@ -9,7 +9,7 @@ export default function ShopPage() {
     <h1 className={styles.title}>Shop Page</h1>
     <div className={styles.products}>
       {PRODUCTS.map((product) =>
-        ProdCard(product, styles, true),
+        <ProdCard key={product.name} product={product} style={styles} isShop={true} />,
       )}
     </div>
     </div>
