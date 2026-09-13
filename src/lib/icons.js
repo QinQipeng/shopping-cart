@@ -1,5 +1,9 @@
 export {
     ShoppingCartPlus,
     ChevronLeft,
-    ChevronRight
+    ChevronRight,
+    Settings, 
+    ShoppingCart,
+    X,
+    CreditCardCheck
 } from "lucide-react"

@@ -99,7 +99,7 @@ const CONTACT_INFO = [
   },
 ];
 
-const MOCK_CART_ITEMS = ALL_PRODUCTS.filter((_, index) => index < 3).map(
+const MOCK_CART_ITEMS = ALL_PRODUCTS.filter((_, index) => index < 10).map(
   (item, index) => {
     return { ...item, quantity: index + 1 };
   },

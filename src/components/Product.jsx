@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { ShoppingCartPlus, ChevronLeft, ChevronRight } from "/src/lib/icons.js";
 
-export default function ProdCard(product, style, isShop = false) {
-  const [quantity, setQuantity] = useState(1)
+export default function ProdCard({product, style, isShop = false}) {
+  const [quantity, setQuantity] = useState(1);
 
   return (
     <div key={product.name} className={style.card}>
@@ -14,9 +14,18 @@ export default function ProdCard(product, style, isShop = false) {
       {isShop && (
         <>
           <div className={style.qtyControl}>
-            <button onClick={() => setQuantity(quantity > 1 ? quantity - 1 : quantity)}><ChevronLeft /></button>
-            <input type="number" name="quantity" value={quantity} step={1} />
-            <button onClick={() => setQuantity(quantity + 1)}><ChevronRight/></button>
+            <button onClick={() => setQuantity(quantity > 1 ? quantity - 1 : quantity)}>
+              <ChevronLeft />
+            </button>
+            <input
+              type="number"
+              name="quantity"
+              value={quantity}
+              onChange={(event) => setQuantity(parseInt(event.target.value))}
+            />
+            <button onClick={() => setQuantity(quantity + 1)}>
+              <ChevronRight />
+            </button>
           </div>
           <button className="addToCart">
             <ShoppingCartPlus />
