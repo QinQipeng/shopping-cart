@@ -4,7 +4,8 @@ import {
   logo,
   navItem,
   selectedItem,
-  profileTab
+  profileTab,
+  cartNotif
 } from "/src/css/sidebar.module.css";
 import brandLogo from "/src/assets/logos/wolfy-cafe.svg"
 import profilePicture from "/src/assets/profile_picture.png"
@@ -31,7 +32,7 @@ function NavItem({page, className}) {
   );
 }
 
-export default function SideBar({path}) {
+export default function SideBar({path, cartSize}) {
   const navigate = useNavigate();
 
   return (
@@ -57,6 +58,7 @@ export default function SideBar({path}) {
             <Settings/>
           </button>
           <button onClick={() => navigate("/cart")}>
+            {cartSize > 0 && <div key={cartSize} className={cartNotif}>{cartSize}</div>}
             <ShoppingCart />
           </button>
         </div>

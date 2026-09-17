@@ -74,9 +74,10 @@ input[type="number"]::-webkit-inner-spin-button {
 svg {
     stroke-width: 1px;
     stroke: var(--dark-primary);
+    transition: stroke-width 0.25s ease;
     
     &:hover {
-        stroke-width: 1.5px;
+        stroke-width: 2px;
         cursor: pointer;
     }
 }

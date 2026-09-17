@@ -26,10 +26,13 @@ ul[role="list"] {
   margin-left: 1rem;
   padding: 0.5rem;
   border-radius: 1rem;
-  width: 75%;
+  width: 50%;
+  transition: width 0.5s ease, background-color 0.5s ease;
 
   &:hover {
     background-color: rgba(128, 128, 128, 0.2);
+    width: 75%;
+    font-weight: bold;
     cursor: pointer;
   }
 
@@ -54,6 +57,37 @@ ul[role="list"] {
   & a {
     font-weight: bold;
   }
+}
+
+.cartNotif {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  background-color: rgb(196, 0, 0);
+  color: white;
+  font-size: 0.8rem;
+  width: 1.2rem;
+  aspect-ratio: 1;
+  border-radius: 1rem;
+  top: -8px;
+  right: -8px;
+  
+  animation: notify 300ms;
+}
+
+@keyframes notify {
+  50% {
+    transform: scale(1.25);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+button {
+  position: relative;
 }
 
 .profileTab {

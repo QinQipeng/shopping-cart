@@ -13,7 +13,7 @@ export default function ShoppingCart() {
 
   return (
     <>
-      <SideBar path={page}/>
+      <SideBar path={page} cartSize={Object.keys(cart).length}/>
       <main style={{flex: 5, height: "100vh"}}>
         {page === "home" ? (
           <HomePage />
