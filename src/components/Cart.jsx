@@ -1,5 +1,4 @@
 import styles from "/src/css/cart.module.css";
-import { MOCK_CART_ITEMS } from "../lib/data";
 import { X, CreditCardCheck } from "/src/lib/icons"
 
 const fmtPrice = function(unit, num) {
