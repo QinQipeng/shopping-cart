@@ -51,6 +51,7 @@ main {
   background: no-repeat url(/src/assets/content-background.jpg);
   background-blend-mode: overlay;
   background-color: rgba(255, 251, 242, 0.900);
+  position: relative;
 }
 
 .layout {

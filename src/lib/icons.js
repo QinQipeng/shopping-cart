@@ -5,5 +5,7 @@ export {
     Settings, 
     ShoppingCart,
     X,
-    CreditCardCheck
+    CreditCardCheck,
+    CircleCheck,
+    Trash
 } from "lucide-react"
