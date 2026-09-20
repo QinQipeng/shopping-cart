@@ -47,10 +47,14 @@ export default function CartPage({ cart, setCart }) {
   const handleDelete = function (prodName) {
     const newCart = { ...cart };
     delete newCart[prodName];
+    localStorage.setItem("cart",JSON.stringify(newCart))
     setCart(newCart);
   };
 
-  const handleClearCart = () => setCart({});
+  const handleClearCart = () => {
+    localStorage.setItem("cart",JSON.stringify({}))
+    setCart({})
+  };
 
   const handleCheckout = () => {
     checkOut((prevState) => !prevState);

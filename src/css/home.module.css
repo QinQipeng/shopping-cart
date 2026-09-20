@@ -131,6 +131,7 @@
 
 .aboutMe img{
     width: 50%;
+    object-fit: contain;
 }
 
 .contact {

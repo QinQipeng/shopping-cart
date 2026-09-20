@@ -13,6 +13,7 @@ export default function ShopPage({ cart, setCart }) {
           ? cart[product.name].quantity + quantity
           : quantity,
     };
+    localStorage.setItem("cart",JSON.stringify(newCart))
     setCart(newCart);
   };
 

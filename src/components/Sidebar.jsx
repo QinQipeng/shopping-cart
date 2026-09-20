@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router";
+import { Link } from "react-router";
 import {
   layout,
   logo,
@@ -33,7 +33,7 @@ function NavItem({page, className}) {
 }
 
 export default function SideBar({path, cartSize}) {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   return (
     <nav className={layout}>
@@ -57,10 +57,10 @@ export default function SideBar({path, cartSize}) {
           <button>
             <Settings/>
           </button>
-          <button onClick={() => navigate("/cart")}>
-            {cartSize > 0 && <div key={cartSize} className={cartNotif}>{cartSize}</div>}
-            <ShoppingCart />
-          </button>
+          <Link to="/cart">
+              {cartSize > 0 && <div key={cartSize} className={cartNotif}>{cartSize}</div>}
+              <ShoppingCart />
+          </Link>
         </div>
       </div>
     </nav>

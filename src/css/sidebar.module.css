@@ -59,6 +59,10 @@ ul[role="list"] {
   }
 }
 
+a {
+  position: relative;
+}
+
 .cartNotif {
   display: flex;
   align-items: center;
@@ -84,10 +88,6 @@ ul[role="list"] {
   to {
     transform: scale(1);
   }
-}
-
-button {
-  position: relative;
 }
 
 .profileTab {
