@@ -34,4 +34,13 @@ describe('Shopping Cart', () => {
     );
     await expect(container).toMatchFileSnapshot("./outputs/default.output.html");
   });
+
+  it('sidebar redirect correctly', async () => {
+    render(<RouterProvider router={router} />);
+    const nav = await screen.queryByRole("main", {hidden: true});
+    console.log(nav)
+    // console.log(container.getByRole("list", {hidden: true}))
+    
+  });
+
 });
