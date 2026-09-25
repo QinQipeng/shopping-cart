@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render, screen, queryAllByRole } from '@testing-library/react';
 import { userEvent } from "@testing-library/user-event"
 import { createMemoryRouter, RouterProvider, redirect } from 'react-router';
 
@@ -27,20 +27,22 @@ beforeEach(() => {
 })
 
 describe('Shopping Cart', () => {
-
-  it('renders headline', async () => {
+  it('testing sidebar nav', async () => {
     const { container } = render(
       <RouterProvider router={router} />
     );
+
     await expect(container).toMatchFileSnapshot("./outputs/default.output.html");
-  });
+    const nav = screen.queryByRole("navigation");
+    const [home, shop, cart] = Array.from(queryAllByRole(nav,"link"));
 
-  it('sidebar redirect correctly', async () => {
-    render(<RouterProvider router={router} />);
-    const nav = await screen.queryByRole("main", {hidden: true});
-    console.log(nav)
-    // console.log(container.getByRole("list", {hidden: true}))
-    
-  });
+    await user.click(shop);
+    expect(screen.queryByRole("main").querySelector("h1").textContent).toMatch(/shop page/i)
 
+    await user.click(cart);
+    expect(screen.queryByRole("main").querySelector("h1").textContent).toMatch(/cart page/i)
+
+    await user.click(home);
+    expect(screen.queryByRole("main").querySelector("h1").textContent).toMatch(/start your day with wolfy café!/i)
+  });
 });
