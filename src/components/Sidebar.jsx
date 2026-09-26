@@ -57,7 +57,7 @@ export default function SideBar({path, cartSize}) {
           <button>
             <Settings/>
           </button>
-          <button onClick={() => navigate("/cart")}>
+          <button data-testid="cart-redirect" onClick={() => navigate("/cart")}>
               {cartSize > 0 && <div key={cartSize} className={cartNotif}>{cartSize}</div>}
               <ShoppingCart />
           </button>

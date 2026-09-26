@@ -79,29 +79,10 @@ const ALL_PRODUCTS = [
   },
 ];
 
-const CONTACT_INFO = [
-  {
-    title: "Location",
-    data: "14A Cameron Road, \nTsim Sha Tsui, Kowloon, \nHong Kong",
-  },
-  {
-    title: "Working Hours",
-    data: "09:30~20:00",
-  },
-  {
-    title: "Tel",
-    data: "+852 21100226",
-  },
-  {
-    title: "Email",
-    data: "WolfyCafe@gmail.com",
-  },
-];
-
 const MOCK_CART_ITEMS = ALL_PRODUCTS.filter((_, index) => index < 10).map(
   (item, index) => {
     return { ...item, quantity: index + 1 };
   },
 );
 
-export { ALL_PRODUCTS, CONTACT_INFO, MOCK_CART_ITEMS };
+export { ALL_PRODUCTS, MOCK_CART_ITEMS };

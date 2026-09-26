@@ -7,9 +7,28 @@ import portrait from "/src/assets/me.jpg"
 import ProdCard from "./Product";
 import { useNavigate } from "react-router";
 
-import { ALL_PRODUCTS as PRODUCTS, CONTACT_INFO } from "/src/lib/data";
+import useProductData from "/src/lib/useProductData.js";
 
 const DISPLAY_NUM = 4;
+const CONTACT_INFO = [
+  {
+    title: "Location",
+    data: "14A Cameron Road, \nTsim Sha Tsui, Kowloon, \nHong Kong",
+  },
+  {
+    title: "Working Hours",
+    data: "09:30~20:00",
+  },
+  {
+    title: "Tel",
+    data: "+852 21100226",
+  },
+  {
+    title: "Email",
+    data: "WolfyCafe@gmail.com",
+  },
+];
+
 
 function ContactItem(contact) {
   return (
@@ -42,8 +61,9 @@ const selfIntro = <article>
 </article>;
 
 export default function HomePage() {
+  const PRODUCTS = useProductData();
   const navigate = useNavigate();
-
+  
   return (
     <div className={styles.layout}>
       <section className={styles.hero}>

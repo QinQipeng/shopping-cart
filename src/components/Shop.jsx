@@ -1,9 +1,10 @@
 import styles from "/src/css/shop.module.css";
 import ProdCard from "./Product";
-
-import { ALL_PRODUCTS as PRODUCTS } from "/src/lib/data";
+import useProductData from "/src/lib/useProductData.js";
 
 export default function ShopPage({ cart, setCart }) {
+  const PRODUCTS = useProductData();
+  
   const handleAddtoCart = function (product, quantity) {
     const newCart = { ...cart };
     newCart[product.name] = {
