@@ -1,44 +1,13 @@
 import { useState, Fragment } from "react";
 import styles from "/src/css/cart.module.css";
+import CartItem from "./CartItem"
 import { X, CreditCardCheck, CircleCheck, Trash } from "/src/lib/icons";
-
-const fmtPrice = function (unit, num) {
-  return `${unit}${num.toFixed(2)}`;
-};
 
 const getTotal = (cartItems) => {
   return cartItems
     .reduce((sum, item) => sum + item.price * item.quantity, 0)
     .toFixed(2);
 };
-
-function CartItem({ item, handleDelete }) {
-  return (
-    <li className={styles.cartItem}>
-      <img src={item.src} alt="" />
-      <div>
-        <p>
-          <span>Name:</span> {item.name}
-        </p>
-        <p>
-          <span>Qty:</span> {item.quantity}
-        </p>
-        <p>
-          <span>Price:</span> {fmtPrice(item.unit, item.price)}
-        </p>
-        <p>
-          <span>Amount:</span> {fmtPrice(item.unit, item.price * item.quantity)}
-        </p>
-      </div>
-      <button
-        onClick={() => handleDelete(item.name)}
-        className={styles.removeItem}
-      >
-        <X />
-      </button>
-    </li>
-  );
-}
 
 export default function CartPage({ cart, setCart }) {
   const [isChecked, checkOut] = useState(false);
@@ -63,7 +32,7 @@ export default function CartPage({ cart, setCart }) {
   return (
     <Fragment>
       {isChecked && (
-        <div className={styles.paymentSucceed}>
+        <div className={styles.paymentSucceed} role="dialog">
           <div>
             <CircleCheck className={styles.circleCheck} />
             <div>
@@ -91,7 +60,7 @@ export default function CartPage({ cart, setCart }) {
               handleDelete={handleDelete}
             />
           ))}
-          <div className={styles.total}>
+          <div data-testid="total-figure" className={styles.total}>
             <span>Total Amount:</span> ${getTotal(CART_ITEMS)}
           </div>
         </ol>
