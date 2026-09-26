@@ -5,7 +5,7 @@ import addressMap from "/src/assets/wolfyCafe-google-map.png";
 import retail from "/src/assets/wolfy-cafe-retail.png";
 import portrait from "/src/assets/me.jpg"
 import ProdCard from "./Product";
-import { Link } from "react-router";
+import { useNavigate } from "react-router";
 
 import { ALL_PRODUCTS as PRODUCTS, CONTACT_INFO } from "/src/lib/data";
 
@@ -42,6 +42,8 @@ const selfIntro = <article>
 </article>;
 
 export default function HomePage() {
+  const navigate = useNavigate();
+
   return (
     <div className={styles.layout}>
       <section className={styles.hero}>
@@ -52,9 +54,10 @@ export default function HomePage() {
             at the helm, our freshly brewed coffee is to elevate your day with
             the highest quality experience!
           </p>
-          <Link className={styles.takeOrder} to="\shop">Take Order</Link>
+          <button className={styles.takeOrder} onClick={() => navigate("/shop")}>Take Order</button>
         </div>
       </section>
+
       <section className={styles.recommendations}>
         <h2>Try Our Hot Sellers of the Season!</h2>
         <div className={styles.products}>
@@ -63,6 +66,7 @@ export default function HomePage() {
           )}
         </div>
       </section>
+
       <section className={styles.contact}>
         <div className={styles.logo}>
           <img src={logoRev} alt="" />
